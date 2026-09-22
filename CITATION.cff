@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+title: "Lattice-Based Post-Quantum Cryptography: Interactive Implementation with ML Experiments"
+message: "If you use this software, please cite the original paper and this repository."
+type: software
+authors:
+  - given-names: Jashan
+    family-names: Goyal
+license: MIT
+repository-code: https://github.com/jashangoyal/Lattice-PQC-Interactive
+keywords:
+  - post-quantum cryptography
+  - lattice-based cryptography
+  - machine learning
+  - CRYSTALS-Kyber
+  - LWE
+  - education
+  - visualization
+references:
+  - type: article
+    title: "An interactive tool for teaching lattice-based post-quantum cryptography"
+    authors:
+      - given-names: Édgar
+        family-names: Pérez-Ramos
+      - given-names: Candelaria
+        family-names: Hernández-Goya
+      - given-names: Pino
+        family-names: Caballero-Gil
+    journal: "Journal of New Approaches in Educational Research"
+    volume: 15
+    issue: 18
+    year: 2026
+    doi: "10.1007/s44322-026-00068-x"
+    publisher:
+      name: Springer
