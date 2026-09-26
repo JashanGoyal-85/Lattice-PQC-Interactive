@@ -1,6 +1,6 @@
 # Lattice-Based Post-Quantum Cryptography — Interactive Implementation
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jashangoyal/Lattice-PQC-Interactive/blob/main/Lattice_PQC_Colab_Notebook.py)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/JashanGoyal-85/Lattice-PQC-Interactive/blob/main/Lattice_PQC_Colab_Notebook.ipynb)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
@@ -48,15 +48,15 @@ Quantum computers threaten current cryptographic standards (RSA, ECDSA). **Latti
 
 ### Option 1: Google Colab (Recommended)
 
-1. Click the **"Open in Colab"** badge above (update the URL with your GitHub username first)
-2. Or manually: go to [colab.research.google.com](https://colab.research.google.com) → **Upload** → select `Lattice_PQC_Colab_Notebook.py`
+1. Click the **"Open in Colab"** badge above to launch directly.
+2. Or manually: go to [colab.research.google.com](https://colab.research.google.com) → **Upload** → select `Lattice_PQC_Colab_Notebook.ipynb`
 3. Run all cells with **Runtime → Run All**
 
 ### Option 2: Local Execution
 
 ```bash
 # Clone the repository
-git clone https://github.com/jashangoyal/Lattice-PQC-Interactive.git
+git clone https://github.com/JashanGoyal-85/Lattice-PQC-Interactive.git
 cd Lattice-PQC-Interactive
 
 # Install dependencies

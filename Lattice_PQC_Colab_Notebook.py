@@ -34,7 +34,8 @@
 #
 # ---
 
-# %% — Cell 1: Setup & Imports
+# %%
+# Cell 1: Setup & Imports
 # ============================================================================
 #  CELL 1 — SETUP & IMPORTS
 # ============================================================================
@@ -69,7 +70,8 @@ print("✅ All imports successful. Ready to explore lattice cryptography!")
 # Think of it as an **infinite grid of regularly-spaced points** in space.
 # The shape of the grid depends entirely on the choice of basis vectors.
 
-# %% — Cell 2: Lattice Generation & Visualization
+# %%
+# Cell 2: Lattice Generation & Visualization
 # ============================================================================
 #  CELL 2 — LATTICE GENERATION & VISUALIZATION
 # ============================================================================
@@ -160,9 +162,9 @@ plot_lattice(b1_b, b2_b, coeff_range=4,
              title="Lattice B — Non-Orthogonal Basis\n$b_1=(3,1),\; b_2=(1,2)$",
              ax=axes[1])
 
-plt.tight_layout()
+plt.tight_layout(rect=[0, 0, 1, 0.95])
 plt.suptitle("Figure 1 — Comparing Orthogonal vs. Non-Orthogonal Lattices",
-             y=1.02, fontsize=16, fontweight='bold')
+             y=0.98, fontsize=16, fontweight='bold')
 plt.show()
 
 print("""
@@ -190,7 +192,8 @@ print("""
 # When u · v = 0, the vectors are **orthogonal** (perpendicular),
 # and lattice problems become easier to solve.
 
-# %% — Cell 3: Dot Product & Orthogonality Demo
+# %%
+# Cell 3: Dot Product & Orthogonality Demo
 # ============================================================================
 #  CELL 3 — DOT PRODUCT & ORTHOGONALITY
 # ============================================================================
@@ -233,9 +236,9 @@ for idx, (b1, b2, label) in enumerate(bases):
     plot_lattice(b1, b2, coeff_range=4,
                  title=f"{label}\nAngle = {angle:.1f}°, Dot = {dot:.2f}",
                  ax=ax)
-plt.tight_layout()
+plt.tight_layout(rect=[0, 0, 1, 0.95])
 plt.suptitle("Figure 2 — Effect of Basis Orthogonality on Lattice Shape",
-             y=1.02, fontsize=16, fontweight='bold')
+             y=0.98, fontsize=16, fontweight='bold')
 plt.show()
 
 print("""
@@ -259,7 +262,8 @@ print("""
 # | **Euclidean** | d_E = √((x₂-x₁)² + (y₂-y₁)²) | "As the crow flies" |
 # | **Manhattan** | d_M = |x₂-x₁| + |y₂-y₁| | "Walking city blocks" |
 
-# %% — Cell 4: Euclidean vs. Manhattan Distance
+# %%
+# Cell 4: Euclidean vs. Manhattan Distance
 # ============================================================================
 #  CELL 4 — EUCLIDEAN vs. MANHATTAN (TAXI) DISTANCE
 # ============================================================================
@@ -333,7 +337,8 @@ plot_distances(A=[0, 0], B=[5, 4], lattice_b1=[1, 0], lattice_b2=[0, 1])
 #
 # This hardness is the **foundation of lattice-based PQC**.
 
-# %% — Cell 5: Closest Vector Problem (CVP) Visualization
+# %%
+# Cell 5: Closest Vector Problem (CVP) Visualization
 # ============================================================================
 #  CELL 5 — CLOSEST VECTOR PROBLEM (CVP)
 # ============================================================================
@@ -419,7 +424,8 @@ demonstrate_cvp(b1=[3, 1], b2=[1, 2], target=[4.7, 3.2])
 #
 # SVP is another computationally hard problem that underpins PQC security.
 
-# %% — Cell 6: Shortest Vector Problem (SVP) Visualization
+# %%
+# Cell 6: Shortest Vector Problem (SVP) Visualization
 # ============================================================================
 #  CELL 6 — SHORTEST VECTOR PROBLEM (SVP)
 # ============================================================================
@@ -511,7 +517,8 @@ demonstrate_svp(b1=[5, 1], b2=[4, 1])
 # Without error → easy linear algebra (Gaussian elimination).
 # With error → intractable, even for quantum computers!
 
-# %% — Cell 7: LWE Encryption Scheme (Simplified Regev)
+# %%
+# Cell 7: LWE Encryption Scheme (Simplified Regev)
 # ============================================================================
 #  CELL 7 — SIMPLIFIED LWE ENCRYPTION (REGEV-STYLE)
 # ============================================================================
@@ -648,7 +655,8 @@ print(f"     • This is EXACTLY the principle behind CRYSTALS-Kyber (ML-KEM)!")
 # The demo below shows a simplified version of how two parties (Alice & Bob)
 # can establish a **shared secret** using lattice-based key exchange.
 
-# %% — Cell 8: Simplified Kyber Key Encapsulation
+# %%
+# Cell 8: Simplified Kyber Key Encapsulation
 # ============================================================================
 #  CELL 8 — SIMPLIFIED KYBER-STYLE KEY ENCAPSULATION
 # ============================================================================
@@ -766,7 +774,8 @@ print("=" * 65)
 # The paper emphasizes that lattice problems are easy in 2D but become
 # exponentially harder in higher dimensions. Let's see this empirically!
 
-# %% — Cell 9: Dimension vs. Difficulty
+# %%
+# Cell 9: Dimension vs. Difficulty
 # ============================================================================
 #  CELL 9 — DIMENSION vs. DIFFICULTY
 # ============================================================================
@@ -825,7 +834,7 @@ ax1.set_ylabel('Shortest Vector Length Found')
 ax1.set_title('SVP Length vs. Dimension\n(brute-force, 2000 samples)')
 
 ax2.bar(range(len(dimensions)),
-        [np.log10(97**d) for d in dimensions],
+        [d * np.log10(97) for d in dimensions],
         color='tomato', alpha=0.8)
 ax2.set_xticks(range(len(dimensions)))
 ax2.set_xticklabels(dimensions)
@@ -833,9 +842,9 @@ ax2.set_xlabel('Lattice Dimension')
 ax2.set_ylabel('log₁₀(Search Space Size)')
 ax2.set_title('Search Space Explosion\n(exponential in dimension)')
 
-plt.tight_layout()
+plt.tight_layout(rect=[0, 0, 1, 0.95])
 plt.suptitle("Figure 6 — Why Lattice Problems Are Hard in High Dimensions",
-             y=1.03, fontsize=15, fontweight='bold')
+             y=0.98, fontsize=15, fontweight='bold')
 plt.show()
 
 print(f"""
@@ -856,7 +865,8 @@ print(f"""
 # from LWE public keys and show that its accuracy **collapses** as the
 # lattice dimension increases — empirically proving PQC's resilience.
 
-# %% — Cell 10: ML Attack on LWE
+# %%
+# Cell 10: ML Attack on LWE
 # ============================================================================
 #  CELL 10 — CAN A NEURAL NETWORK BREAK LWE?
 # ============================================================================
@@ -905,18 +915,12 @@ def ml_attack_lwe(n, m=None, q=97, num_samples=3000):
     pk = (A, b)
 
     # Generate training data: encrypt random bits, record (ciphertext, bit)
-    X, y = [], []
-    for _ in range(num_samples):
-        bit = np.random.randint(0, 2)
-        r = np.random.randint(0, 2, size=m)
-        u = (r @ A) % q
-        v = (np.dot(r, b) + bit * (q // 2)) % q
-        # Feature vector = concatenation of u and v
-        features = np.concatenate([u, [v]])
-        X.append(features)
-        y.append(bit)
-
-    X, y = np.array(X), np.array(y)
+    bits = np.random.randint(0, 2, size=num_samples)
+    r = np.random.randint(0, 2, size=(num_samples, m))
+    u = (r @ A) % q
+    v = (r @ b + bits * (q // 2)) % q
+    X = np.column_stack([u, v])
+    y = bits
 
     # Train/test split
     X_train, X_test, y_train, y_test = train_test_split(
@@ -1006,7 +1010,8 @@ print(f"""
 # We train a neural network to approximate the Closest Vector Problem
 # (CVP) and measure how its accuracy degrades with dimension.
 
-# %% — Cell 11: ML-Assisted CVP Solver
+# %%
+# Cell 11: ML-Assisted CVP Solver
 # ============================================================================
 #  CELL 11 — ML-ASSISTED CVP SOLVER
 # ============================================================================
@@ -1026,39 +1031,31 @@ def ml_cvp_solver(n=2, q=97, num_train=5000, num_test=500):
     B = np.random.randint(1, 10, size=(n, n)).astype(float)
 
     def generate_cvp_data(num):
-        X, y = [], []
-        for _ in range(num):
-            # Random target in a bounded region
-            target = np.random.uniform(-20, 20, size=n)
+        X = np.random.uniform(-20, 20, size=(num, n))
 
-            # Brute-force find closest lattice point
-            best_dist = float('inf')
-            best_coeffs = np.zeros(n)
-            search = range(-5, 6)
-            # For high dimensions, use random sampling instead of exhaustive
-            if n <= 4:
-                from itertools import product as cp
-                for coeffs in cp(search, repeat=n):
-                    coeffs = np.array(coeffs, dtype=float)
-                    point = B.T @ coeffs
-                    dist = np.linalg.norm(point - target)
-                    if dist < best_dist:
-                        best_dist = dist
-                        best_coeffs = coeffs
-            else:
-                # Random sampling for higher dims
-                for _ in range(3000):
-                    coeffs = np.random.randint(-5, 6, size=n).astype(float)
-                    point = B.T @ coeffs
-                    dist = np.linalg.norm(point - target)
-                    if dist < best_dist:
-                        best_dist = dist
-                        best_coeffs = coeffs
+        # Candidate coefficient vectors
+        if n <= 3:
+            from itertools import product as cp
+            coeffs_grid = np.array(list(cp(range(-5, 6), repeat=n)), dtype=float)
+        elif n == 4:
+            from itertools import product as cp
+            coeffs_grid = np.array(list(cp(range(-4, 5), repeat=n)), dtype=float)
+        else:
+            # Random sampling for higher dims
+            coeffs_grid = np.random.randint(-5, 6, size=(2500, n)).astype(float)
 
-            X.append(target)
-            y.append(best_coeffs)
+        points_grid = coeffs_grid @ B
+        chunk_size = 500
+        best_coeffs_list = []
+        for i in range(0, num, chunk_size):
+            chunk = X[i:i + chunk_size]
+            diff = chunk[:, None, :] - points_grid[None, :, :]
+            dists_sq = np.sum(diff ** 2, axis=2)
+            min_indices = np.argmin(dists_sq, axis=1)
+            best_coeffs_list.append(coeffs_grid[min_indices])
 
-        return np.array(X), np.array(y)
+        y = np.vstack(best_coeffs_list)
+        return X, y
 
     # Generate data
     X_train, y_train = generate_cvp_data(num_train)
@@ -1142,9 +1139,9 @@ ax2.set_xlabel('Lattice Dimension')
 ax2.set_ylabel('Average Extra Distance')
 ax2.set_title('CVP Distance Error by Dimension')
 
-plt.tight_layout()
+plt.tight_layout(rect=[0, 0, 1, 0.95])
 plt.suptitle("Figure 8 — ML-Assisted CVP Solver: Accuracy Degrades with Dimension",
-             y=1.03, fontsize=14, fontweight='bold')
+             y=0.98, fontsize=14, fontweight='bold')
 plt.show()
 
 print(f"""
@@ -1169,7 +1166,8 @@ print(f"""
 # with LWE, performing a linear ML prediction on the ciphertexts,
 # and decrypting only the result. The server NEVER sees the raw data!
 
-# %% — Cell 12: Encrypted ML Inference Demo
+# %%
+# Cell 12: Encrypted ML Inference Demo
 # ============================================================================
 #  CELL 12 — ENCRYPTED ML INFERENCE (SIMPLIFIED FHE)
 # ============================================================================
@@ -1305,7 +1303,8 @@ encrypted_ml_inference_demo()
 # Let's combine our ML attack results into a single compelling visualization
 # that shows how lattice security scales beyond the reach of ML.
 
-# %% — Cell 13: Combined ML + Security Scaling Plot
+# %%
+# Cell 13: Combined ML + Security Scaling Plot
 # ============================================================================
 #  CELL 13 — ML vs LATTICE SECURITY SCALING
 # ============================================================================
@@ -1339,7 +1338,7 @@ axes[0].set_ylim(30, 100)
 axes[0].grid(True, alpha=0.3)
 
 # Plot 2: Brute force search space
-axes[1].semilogy(scaling_dims, [97**d for d in scaling_dims], 'bs-',
+axes[1].semilogy(scaling_dims, [float(97**d) for d in scaling_dims], 'bs-',
                  linewidth=2, markersize=7)
 axes[1].set_xlabel('LWE Dimension (n)')
 axes[1].set_ylabel('Search Space Size (log scale)')
@@ -1364,9 +1363,9 @@ axes[2].axvline(x=256, color='blue', linestyle='--', alpha=0.5,
 axes[2].legend(fontsize=8)
 axes[2].grid(True, alpha=0.3)
 
-plt.tight_layout()
+plt.tight_layout(rect=[0, 0, 1, 0.95])
 plt.suptitle("Figure 9 — Machine Learning vs. Lattice Cryptographic Security",
-             y=1.03, fontsize=15, fontweight='bold')
+             y=0.98, fontsize=15, fontweight='bold')
 plt.show()
 
 print(f"""
@@ -1381,7 +1380,8 @@ print(f"""
 # ---
 # ## 13. 🔮 Summary & Future Scope (Including ML + PQC)
 
-# %% — Cell 14: Summary & Future Scope
+# %%
+# Cell 14: Summary & Future Scope
 # ============================================================================
 #  CELL 14 — SUMMARY & FUTURE SCOPE
 # ============================================================================
